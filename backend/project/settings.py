@@ -39,14 +39,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 'accounts',
-    'accounts.apps.AccountsConfig',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
-    'products'
+    'corsheaders',  # cors headers
+    'accounts.apps.AccountsConfig',
+    'products',
+    'restaurants',
+    'orders',
+    # 'drf-spectacular',
+    'drf_yasg',
+    
+    
+
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # CORS middleware
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -54,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -176,3 +186,5 @@ SIMPLE_JWT = {
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+CORS_ORIGIN_ALLOW_ALL = True
